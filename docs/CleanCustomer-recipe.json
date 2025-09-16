@@ -1,0 +1,114 @@
+[
+  {
+    "Action": {
+      "Operation": "DELETE",
+      "Parameters": {
+        "sourceColumns": "[\"Middle_Name\",\"Suffix\"]"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "FORMAT_DATE",
+      "Parameters": {
+        "sourceColumn": "DoB",
+        "targetDateFormat": "MM-dd-yyyy"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "FORMAT_DATE",
+      "Parameters": {
+        "sourceColumn": "DoB",
+        "targetDateFormat": "MM-dd-yyyy"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "REMOVE_COMBINED",
+      "Parameters": {
+        "collapseConsecutiveWhitespace": "false",
+        "customCharacters": "<>&",
+        "removeAllPunctuation": "false",
+        "removeAllQuotes": "false",
+        "removeAllWhitespace": "false",
+        "removeCustomCharacters": "true",
+        "removeCustomValue": "false",
+        "removeLeadingAndTrailingPunctuation": "false",
+        "removeLeadingAndTrailingQuotes": "false",
+        "removeLeadingAndTrailingWhitespace": "false",
+        "removeLetters": "false",
+        "removeNumbers": "false",
+        "removeSpecialCharacters": "false",
+        "sourceColumn": "Address"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "SPLIT_COLUMN_SINGLE_DELIMITER",
+      "Parameters": {
+        "includeInSplit": "true",
+        "isText": "TRUE",
+        "limit": "4",
+        "pattern": ";",
+        "sourceColumn": "Address"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "RENAME",
+      "Parameters": {
+        "sourceColumn": "Address_4",
+        "targetColumn": "Zip"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "RENAME",
+      "Parameters": {
+        "sourceColumn": "Address_3",
+        "targetColumn": "City"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "RENAME",
+      "Parameters": {
+        "sourceColumn": "Address_5",
+        "targetColumn": "Country"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "MERGE",
+      "Parameters": {
+        "sourceColumns": "[\"Prefix\",\"First_Name\",\"Last_Name\"]",
+        "targetColumn": "Name"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "UPPER_CASE",
+      "Parameters": {
+        "sourceColumn": "Name"
+      }
+    }
+  },
+  {
+    "Action": {
+      "Operation": "FORMAT_DATE",
+      "Parameters": {
+        "sourceColumn": "DoB",
+        "targetDateFormat": "MM-dd-yyyy"
+      }
+    }
+  }
+]
